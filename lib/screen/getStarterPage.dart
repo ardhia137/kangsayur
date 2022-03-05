@@ -35,19 +35,18 @@ class _GetStarterPageState extends State<GetStarterPage> {
       return  Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: containt.asMap().entries.map((entry) {
-                return GestureDetector(
-                  onTap: () => _controller.animateToPage(entry.key),
-                  child: Container(
-                    width: 8.0,
-                    height: 8.0,
-                    margin:
-                        EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: curentIndex == entry.key ? Color(0xffbdbdbd):Colors.white),
-                  ),
+                // print(entry.key+1);
+                return Container(
+                  width: 8.0,
+                  height: 8.0,
+                  margin:
+                      EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: curentIndex != entry.key ? Color(0xffbdbdbd):Colors.white),
                 );
               }).toList());
+                
     }
 
     Widget button() {
@@ -88,6 +87,7 @@ class _GetStarterPageState extends State<GetStarterPage> {
           CarouselSlider(
             carouselController: _controller,
             options: CarouselOptions(
+              enableInfiniteScroll: false,
                 height: 558,
                 // disableCenter: true,
                 viewportFraction: 1.0,
@@ -128,9 +128,9 @@ class _GetStarterPageState extends State<GetStarterPage> {
             // indicator()
           ),
           button(),
-          SizedBox(
-            height: 400,
-          ),
+          // const SizedBox(
+          //   height: 400,
+          // ),
         ],
       );
     }

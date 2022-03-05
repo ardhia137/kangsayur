@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kangsayur/theme.dart';
 import 'package:kangsayur/widget/buttonWidget.dart';
@@ -62,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),),
               ),
             ),
-            ButtonWidget(borderColor: primaryColor, text: Text('Login',style: whiteTextStyle.copyWith(fontWeight: semibold,fontSize: 18),), onPressed: (){}, color: primaryColor, margin: EdgeInsets.only(top: 18, bottom: 25),),
+            ButtonWidget(borderColor: primaryColor, text: Text('Login',style: whiteTextStyle.copyWith(fontWeight: semibold,fontSize: 18),), onPressed: ()=> Navigator.pushNamed(context, '/main'), color: primaryColor, margin: EdgeInsets.only(top: 18, bottom: 25),),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

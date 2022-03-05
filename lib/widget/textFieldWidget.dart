@@ -36,7 +36,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
               child: Center(
                 child: TextFormField(
                   //   keyboardType: keyboard,
-                  obscureText: !_isObscure,
+                  obscureText: widget.obsecureText == true ? _isObscure :!_isObscure,
                   style: blackTextStyle,
                   // controller: controller,
 

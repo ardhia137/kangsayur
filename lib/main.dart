@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kangsayur/screen/getStarterPage.dart';
+import 'package:kangsayur/screen/home/mainPage.dart';
 import 'package:kangsayur/screen/loginPage.dart';
+import 'package:kangsayur/screen/splashPage.dart';
 import 'package:kangsayur/screen/starterPage.dart';
 
 void main() {
@@ -16,9 +18,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
         routes: {
-            '/': (context) => GetStarterPage(),
-            "/strterpage":(context)=>StarterPage(),
+            '/': (context) => SplashPage(),
+            '/firstpage': (context) => GetStarterPage(),
+            '/strterpage':(context)=>StarterPage(),
             '/login':(context) => LoginPage(),
+            '/main':(context) => MainPage(),
       },
     );
   }
