@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:kangsayur/theme.dart';
 import 'package:kangsayur/widget/clippathWidget.dart';
+import 'package:kangsayur/widget/productWidget.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -259,12 +260,134 @@ class _MainPageState extends State<MainPage> {
       );
     }
 
+  Widget category(){
+    return Padding(
+      padding: const EdgeInsets.only(left: 20,right: 20,top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Categories",style: blackTextStyle.copyWith(
+            fontSize: 18,
+            fontWeight: semibold
+          ),),
+          Container(
+            height: 88,
+            margin: EdgeInsets.only(top: 28),
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              children: [
+               Container(
+                 margin: EdgeInsets.only(right: 19),
+                 child: Column(
+                   children: [
+                     Image.asset('assets/vegetables.png',width: 53,),
+                     const SizedBox(height: 8,),
+                     Text('Vegetables',style: blackTextStyle.copyWith(fontSize: 12),)
+                   ],
+                 ),
+               ),Container(
+                 margin: EdgeInsets.only(right: 19),
+                 child: Column(
+                   children: [
+                     Image.asset('assets/fruits.png',width: 53,),
+                     const SizedBox(height: 8,),
+                     Text('Fruits',style: blackTextStyle.copyWith(fontSize: 12),)
+                   ],
+                 ),
+               ),Container(
+                 margin: EdgeInsets.only(right: 19),
+                 child: Column(
+                   children: [
+                     Image.asset('assets/meat&eggs.png',width: 53,),
+                     const SizedBox(height: 8,),
+                     Text('Meat & Eggs',style: blackTextStyle.copyWith(fontSize: 12),)
+                   ],
+                 ),
+               ),Container(
+                 margin: EdgeInsets.only(right: 19),
+                 child: Column(
+                   children: [
+                     Image.asset('assets/drinks.png',width: 53,),
+                     const SizedBox(height: 8,),
+                     Text('Drinks',style: blackTextStyle.copyWith(fontSize: 12),)
+                   ],
+                 ),
+               ),Container(
+                 margin: EdgeInsets.only(right: 19),
+                 child: Column(
+                   children: [
+                     Image.asset('assets/bakery.png',width: 53,),
+                     const SizedBox(height: 8,),
+                     Text('Drinks',style: blackTextStyle.copyWith(fontSize: 12),)
+                   ],
+                 ),
+               ),
+              ],
+            ),
+          ),
+         
+        ],
+      ),
+    );
+  }
+  
+  Widget garis(){
+    return  Container(
+            margin: EdgeInsets.only(top: 20),
+            child: Divider(color: greyColor3),
+          );
+  }
+  
+  Widget special(){
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 20,horizontal: 25),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Special Deal",style: blackTextStyle.copyWith(
+                fontWeight: semibold,
+                fontSize: 18
+              ),),
+              Row(
+                children: [
+                  Text("See more",style: primaryTextStyle.copyWith(fontWeight: medium,fontSize: 13),),
+                  Icon(Icons.arrow_forward_ios_sharp,size: 20,color: primaryColor,)
+                ],
+              )
+            ],
+          ),
+          Container(
+            height: 255,
+            // color: Colors.red,
+            margin: EdgeInsets.only(top: 25),
+            child: ListView(
+              shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                children: [
+                  ProductWidget(img: 'assets/img_kentang.png',text: "Fresh Potato",),
+                  ProductWidget(img: 'assets/img_tomat.png',text: "Fresh Tomato",),
+                  ProductWidget(img: 'assets/img_wortel.png',text: "Fresh Carrot",),
+                ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+  
     return SafeArea(
         child: Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: bottomnav(),
-      body: ListView(
-        children: [header()],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [header(),category(),garis(),special()],
+        ),
       ),
     ));
   }
